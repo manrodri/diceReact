@@ -21,7 +21,7 @@ export class BackendStack extends Stack {
         })
 
         // apigateway
-        const api = new apigw.LambdaRestApi(this, 'Gateway', {
+        const api = new apigw.LambdaRestApi(this, 'DiceGateway', {
             description: 'Endpoint for a simple Lambda-powered web service',
             handler: alias,
         });
