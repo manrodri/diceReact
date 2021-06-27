@@ -4,7 +4,7 @@ import {BuildSpec} from '@aws-cdk/aws-codebuild';
 import * as iam from "@aws-cdk/aws-iam"
 import * as s3 from "@aws-cdk/aws-s3"
 
-export class InfraStack extends Stack {
+export class FrontendStack extends Stack {
     bucketUrl: CfnOutput;
 
     constructor(scope: Construct, id: string, props?: StackProps) {
