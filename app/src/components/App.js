@@ -1,33 +1,19 @@
-import React from 'react';
-import unsplash from "../api/unsplash";
-
-import SearchBar from "./SearchBar";
+import React, {useState} from 'react';
 import "../css/App.css";
-import ImageList from "./ImageList";
+
+import Dice from "./Dice"
 
 
-class App extends React.Component {
-    state = {images: []};
+const App = () => {
 
-    onSearchSubmit = async (term) => {
-        const response = await unsplash.get('/search/photos', {
-            params: {
-                query: term
-            }
-        });
-        this.setState({images: response.data.results})
-    };
-
-    render() {
-        return (
+    return (
             <div className="ui container" style={{marginTop: '1em'}}>
-                <SearchBar onSubmit={this.onSearchSubmit}/>
-                <div>{this.state.images.length > 0 ? `Found: ${this.state.images.length} images` : ""}</div>
-                <ImageList images={this.state.images}/>
+                <Dice />
+
             </div>
         );
-    }
 }
+
 
 
 export default App;
