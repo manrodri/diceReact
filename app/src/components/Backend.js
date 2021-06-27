@@ -2,7 +2,7 @@ const Backend = ({sides, numberOfDices}) => {
     const results = [];
     for (let i = 0; i < parseInt(numberOfDices); i++) {
         const output = {
-            id: "",
+            id: i,
             result: Math.floor(Math.random() * parseInt(sides)) + 1
         }
       results.push(output);
