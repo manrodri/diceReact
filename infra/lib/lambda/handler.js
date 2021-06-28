@@ -1,4 +1,4 @@
-export const handler = async (event, context) => {
+ exports.handler = async (event) => {
     const {sides, numberOfDices} = event
     const results = [];
 
