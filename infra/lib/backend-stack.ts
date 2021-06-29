@@ -85,6 +85,11 @@ export class BackendStack extends Stack {
         })
         diceRoll.addMethod('POST', postDiceRollIntegration,
             {
+                requestValidatorOptions: {
+                    requestValidatorName: 'test-validator',
+                    validateRequestBody: true,
+                    validateRequestParameters: false
+                },
                 methodResponses: [
                     {
                         // Successful response from the integration
