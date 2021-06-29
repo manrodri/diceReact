@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import Backend from "./Backend";
 import ImageList from "./ImageList";
 
 const RollDices = ({sides, dices, gamesPlayed}) => {
@@ -8,18 +7,35 @@ const RollDices = ({sides, dices, gamesPlayed}) => {
 
     useEffect(() => {
 
-        const input = {
-            sides: sides,
-            numberOfDices: dices
+        async function postData(url = '', data = {}) {
+            // Default options are marked with *
+            const response = await fetch(url, {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data) // body data type must match "Content-Type" header
+            });
+            return response.json(); // parses JSON response into native JavaScript objects
         }
-        setResults(Backend(input))
+
+        postData('https://5chcn1mqnb.execute-api.eu-west-1.amazonaws.com/prod/diceRoll', {sides: 6, numberOfDices: 3})
+            .then(data => {
+                setResults(data.body); // JSON data parsed by `data.json()` call
+            });
+
+       // const input = {
+       //      sides: sides,
+       //      numberOfDices: dices
+       //  }
+       //  setResults(Backend(input))
     }, [sides, dices, gamesPlayed])
 
     return (
         <div className={`ui header`}>
 
-            <ImageList scores={results.dicesOutput} />
-            <hr />
+            <ImageList scores={results.dicesOutput}/>
+            <hr/>
 
             <div>
                 Total: <hr/>
@@ -31,3 +47,5 @@ const RollDices = ({sides, dices, gamesPlayed}) => {
 }
 
 export default RollDices;
+
+
