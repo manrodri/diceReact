@@ -29,7 +29,6 @@ This is my solution to a [devProject](https://www.codementor.io/projects/web/ran
 ### Frontend
 
 - Basic React app that meets requirements
-- It Uses code running in client to provide diceRoll
 - Improve User experience (css)
 
 
@@ -40,7 +39,6 @@ This is my solution to a [devProject](https://www.codementor.io/projects/web/ran
 - Input validation
 - Display cards using grid
 - Button to play again with the same setting
-- use of backend
 
 ### Back end
 
