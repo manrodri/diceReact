@@ -22,6 +22,8 @@ This is my solution to a [devProject](https://www.codementor.io/projects/web/ran
 - Basic lambda function and apigateway (not proxy without authentication, models, or request and response transformation)
 - S3 bucket to host client side code
 - IAM roles necessary for this infra to work
+- CDKPipeline to handles backend continuous deployment
+- CodeBuild Job that handles Continuous Deployment to S3 bucket
 
 
 ### Frontend
@@ -42,7 +44,7 @@ This is my solution to a [devProject](https://www.codementor.io/projects/web/ran
 
 ### Back end
 
-- Use of AWS CodePipeline
+- Integrate frontend CB job in CDK Pipeline
 - Use AWS CodeDeploy to deploy lambda last version and alias
 - Provide rollback
 - Write some tests

@@ -19,7 +19,7 @@ export class PipelineStack extends Stack {
             }),
             owner: 'manrodri',
             repo: 'diceReact',
-            branch: "master"
+            branch: "pipeline"
         });
 
         const synthAction = pipelines.SimpleSynthAction.standardNpmSynth({
@@ -36,6 +36,12 @@ export class PipelineStack extends Stack {
             sourceAction,
             synthAction
         });
+
+        const preProdApp = new BackendServiceStack(this, "Pre-prod")
+        const preProdStage = pipeline.addApplicationStage(preProdApp);
+        const serviceUrl = pipeline.stackOutput(preProdApp.urlOutput);
+
+
 
     }
 

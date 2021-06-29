@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import Dropdown from "./Dropdown";
 import RollDices from "./RollDices";
+import "./Dice.css"
 
 const options = [
     {
@@ -29,6 +30,13 @@ const options = [
 const Dice = () => {
     const [sides, setSides] = useState(options[0])
     const [dices, setDices] = useState('2')
+    const [gamesPlayed, setGamesPlayed] = useState(0)
+
+    let increment = 0
+
+    const playAgain = () => {
+        setGamesPlayed(increment++)
+    }
 
     return (
         <div className={`ui container`}>
@@ -47,8 +55,13 @@ const Dice = () => {
                 onSelectedChange={setSides}
                 options={options}
             />
-            <RollDices dices={dices} sides={sides.value}/>
-
+            <RollDices dices={dices} sides={sides.value} gamesPlayed={gamesPlayed} />
+            <div className="container-button">
+                <button className="ui icon button" id={`my-button`} onClick={playAgain} >
+                    <p>Play again</p>
+                   <i className="fas fa-dice fa-lg"/>
+            </button>
+            </div>
         </div>
 
     )
