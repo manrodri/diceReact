@@ -19,7 +19,7 @@ const RollDices = ({sides, dices, gamesPlayed}) => {
             return response.json(); // parses JSON response into native JavaScript objects
         }
 
-        postData('https://5chcn1mqnb.execute-api.eu-west-1.amazonaws.com/prod/diceRoll', {sides: 6, numberOfDices: 3})
+        postData('https://5chcn1mqnb.execute-api.eu-west-1.amazonaws.com/prod/diceRoll', {sides: sides, numberOfDices: dices})
             .then(data => {
                 setResults(data.body); // JSON data parsed by `data.json()` call
             });

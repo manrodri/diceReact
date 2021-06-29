@@ -2,7 +2,7 @@ import { Construct, SecretValue, Stack, StackProps } from '@aws-cdk/core';
 import * as cp from '@aws-cdk/aws-codepipeline';
 import * as cpa from '@aws-cdk/aws-codepipeline-actions';
 import * as pipelines from '@aws-cdk/pipelines';
-import { BackendServiceStack} from "./backend-service-stack";
+import {BackendServiceStack, FrontendServiceStack} from "./backend-service-stack";
 
 export class PipelineStack extends Stack {
     constructor(scope: Construct, id: string, props?: StackProps) {
@@ -37,9 +37,17 @@ export class PipelineStack extends Stack {
             synthAction
         });
 
-        const preProdApp = new BackendServiceStack(this, "Pre-prod")
-        const preProdStage = pipeline.addApplicationStage(preProdApp);
-        const serviceUrl = pipeline.stackOutput(preProdApp.urlOutput);
+
+
+        const preProdBackend = new BackendServiceStack(this, "Pre-prod-backend")
+        const preProdStage = pipeline.addApplicationStage(preProdBackend);
+        const serviceUrl = pipeline.stackOutput(preProdBackend.urlOutput);
+
+        const preProdFrontend = new FrontendServiceStack(this, 'Pre-prod-frontend')
+        const preProdFrontendStage = pipeline.addApplicationStage(preProdFrontend)
+        const frontendUrl = pipeline.stackOutput(preProdFrontend.bucketUrl)
+
+
 
 
 
