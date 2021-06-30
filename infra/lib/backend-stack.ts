@@ -73,7 +73,7 @@ export class BackendStack extends Stack {
 
                 },
                 {
-                    selectionPattern: '(\n|.)+',
+                    selectionPattern: 'Number of sides and number of dices must be an integer',
                     statusCode: "400",
                     responseParameters: {
                         'method.response.header.Content-Type': "'application/json'",

@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import Dropdown from "./Dropdown";
 import RollDices from "./RollDices";
-import "./Dice.css"
+import "../css/Dice.css"
 
 const options = [
     {

@@ -4,13 +4,7 @@
     let statusCode = 400;
     let response;
     if(!parseInt(sides) || !parseInt(numberOfDices)){
-        response = {
-            body: {},
-            message: "Number of sides and number of dices must be an integer",
-            error: "Bad request",
-            statusCode: 400
-        }
-        return response
+        throw new Error("Number of sides and number of dices must be an integer");
     }
 
     for (let i = 0; i < parseInt(numberOfDices); i++) {
@@ -23,6 +17,8 @@
     const total = results.reduce((total, amount) => {
         return total + amount.result;
     }, 0);
+
+    statusCode = 200;
 
     response = {
         body: {

@@ -39,13 +39,13 @@ export class PipelineStack extends Stack {
 
 
 
-        const preProdBackend = new BackendServiceStack(this, "Pre-prod-backend")
-        const preProdStage = pipeline.addApplicationStage(preProdBackend);
-        const serviceUrl = pipeline.stackOutput(preProdBackend.urlOutput);
-
-        const preProdFrontend = new FrontendServiceStack(this, 'Pre-prod-frontend')
-        const preProdFrontendStage = pipeline.addApplicationStage(preProdFrontend)
-        const frontendUrl = pipeline.stackOutput(preProdFrontend.bucketUrl)
+        // const preProdBackend = new BackendServiceStack(this, "Pre-prod-backend")
+        // const preProdStage = pipeline.addApplicationStage(preProdBackend);
+        // const serviceUrl = pipeline.stackOutput(preProdBackend.urlOutput);
+        //
+        // const preProdFrontend = new FrontendServiceStack(this, 'Pre-prod-frontend')
+        // const preProdFrontendStage = pipeline.addApplicationStage(preProdFrontend)
+        // const frontendUrl = pipeline.stackOutput(preProdFrontend.bucketUrl)
 
 
 

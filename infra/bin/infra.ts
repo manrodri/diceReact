@@ -7,9 +7,17 @@ import {PipelineStack} from "../lib/pipeline-stack";
 
 const app = new cdk.App();
 
-new PipelineStack(app, "PipelineDiceRollStack", {
-     env: {account: process.env.CDK_DEFAULT_ACCOUNT, region: process.env.CDK_DEFAULT_REGION},
+new FrontendStack(app, 'FrontendDiceReactStack', {
+    env: {account: process.env.CDK_DEFAULT_ACCOUNT, region: process.env.CDK_DEFAULT_REGION},
+});
+
+new BackendStack(app, 'BackendStack', {
+      env: {account: process.env.CDK_DEFAULT_ACCOUNT, region: process.env.CDK_DEFAULT_REGION},
 })
+
+// new PipelineStack(app, "PipelineDiceRollStack", {
+//      env: {account: process.env.CDK_DEFAULT_ACCOUNT, region: process.env.CDK_DEFAULT_REGION},
+// })
 
 
 
