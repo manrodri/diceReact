@@ -7,7 +7,7 @@ const ImageList = (props) => {
         return <ImageCard key={score.id} score={score}/>
     });
     return (
-        <div>{scores}</div>
+        <div className={`ui three column grid`}>{scores}</div>
 
     )
 }

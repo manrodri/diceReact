@@ -5,7 +5,7 @@
     grid-auto-rows: 10px;
 }
 
-.image-list img {
+.image-list .dice-output {
     width: 250px;
     grid-row-end: span 2;
 }
