@@ -1,13 +1,13 @@
 import React from 'react';
-import "../css/ImageList.css"
 import ImageCard from "./ImageCard";
+import '../css/ImageList.css'
 
 const ImageList = (props) => {
     const scores = props.scores.map((score) => {
         return <ImageCard key={score.id} score={score}/>
     });
     return (
-        <div className={`ui three column grid`}>{scores}</div>
+        <div className={`ui grid image-list`}>{scores}</div>
 
     )
 }
